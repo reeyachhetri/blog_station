@@ -14,18 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 // To welcome page
 
-Route::get('/', 'App\Http\Controllers\WelcomeController@index');
+Route::get('/', 'App\Http\Controllers\WelcomeController@index')->name('welcome.index');
 
 
 // To blog page
-Route::get('/blogstation', 'App\Http\Controllers\BlogController@index');
+Route::get('/blogstation', 'App\Http\Controllers\BlogController@index')->name('blog.index');
 
-Route::get('/blog/details', 'App\Http\Controllers\BlogController@show');
+// To details page
+Route::get('/blog/details', 'App\Http\Controllers\BlogController@show')->name('blog.show');
 
 // To about us page
-Route::get('/aboutus', function(){
+Route::get('/about-us', function(){
     return view('aboutus');
-});
+})->name('about');
 
 // To contact page
-Route::get('/contactus', 'App\Http\Controllers\ContactController@index');
+Route::get('/contact-us', 'App\Http\Controllers\ContactController@index')->name('contact.index');
