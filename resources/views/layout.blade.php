@@ -29,7 +29,10 @@
             <li><a class="{{Request::routeIs('blog.index') ? 'active' : ''}}" href="{{route('blog.index')}}">Blog</a></li>
             <li><a class="{{Request::routeIs('about') ? 'active' : ''}}" href="{{route('about')}}">About</a></li>
             <li><a class="{{Request::routeIs('contact.index') ? 'active' : ''}}"href="{{route('contact.index')}}">Contact</a></li>
-          </ul>
+            <li><a class="{{Request::routeIs('login') ? 'active' : ''}}"href="{{route('login')}}">Login</a></li>
+            <li><a class="{{Request::routeIs('register') ? 'active' : ''}}"href="{{route('register')}}">Register</a></li>
+
+        </ul>
         </div>
 
         <!-- sidebar footer -->
@@ -40,7 +43,7 @@
             <a href=""><i class="fab fa-twitter"></i></a>
           </div>
 
-          <small>&copy 2021 Blog Station</small>
+          <small>&copy 2023 Blog Station</small>
         </footer>
       </div>
       <!-- Menu Button -->

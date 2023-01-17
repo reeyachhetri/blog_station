@@ -30,3 +30,7 @@ Route::get('/about-us', function(){
 
 // To contact page
 Route::get('/contact-us', 'App\Http\Controllers\ContactController@index')->name('contact.index');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
