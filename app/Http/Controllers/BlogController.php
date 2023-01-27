@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
+
 
 class BlogController extends Controller
 {
@@ -13,7 +17,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('blog');
+        $posts = Post::latest()->get();
+        return view('post.blog', compact('posts'));
     }
 
     /**
@@ -23,7 +28,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.create-blog-post');
     }
 
     /**
@@ -34,7 +39,51 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'title'=> 'required',
+            'image'=> 'required | image',
+            'body'=> 'required'
+
+        ]);
+
+        $title = $request->input('title');
+        $slug = Str::slug($title, '-');
+        $user_id = Auth::user()->id;
+        $body = $request->input('body');
+
+
+        $imagePath = 'storage/' . $request->file('image')->store('img', 'public');
+
+
+        $post = new Post();
+        $post->title = $title;
+        $post->slug = $slug;
+        $post->user_id = $user_id;
+        $post->body = $body;
+        $post->imagePath = $imagePath;
+
+
+        $post->save();
+
+        return redirect()->back()->with('status','The post has been created successfully');
+
+    //Old method
+        /* $post = Post::create([
+            'title' => $request->title,
+            'slug'=> $request->slug,
+            'user_id'=>$request->user_id,
+            'body' => $request->body,
+
+        ]);
+        $imagePath = 'storage/' . $request->file('image')->store('img', 'public');
+
+
+        $post->update([
+            'image' =>$imagePath,
+        ]);
+        return redirect()->route('post.blog'); */
+
     }
 
     /**
@@ -43,9 +92,10 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($slug)
     {
-        return view('details');
+        $post = Post::where('slug', $slug)->first();
+        return view('post.details', compact('post'));
     }
 
     /**

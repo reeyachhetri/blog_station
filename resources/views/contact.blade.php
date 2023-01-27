@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.sidebar')
 
 @section('main')
  <!-- main -->
@@ -19,7 +19,7 @@
           <div class="specific-info">
             <i class="fas fa-home"></i>
             <div>
-              <p class="title">4th floor, Hi Center</p>
+              <p class="title">6th floor, Shankamul Tower</p>
               <p class="subtitle">Moi Avenue</p>
             </div>
           </div>
@@ -37,7 +37,7 @@
             <i class="fas fa-envelope-open-text"></i>
             <div>
               <a href="mailto:info@alphayo.co.ke">
-                <p class="title">info@alphayo.co.ke</p>
+                <p class="title">info@blogstation.com.np</p>
               </a>
               <p class="subtitle">Send us your query anytime!</p>
             </div>

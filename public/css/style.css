@@ -3,12 +3,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Abril Fatface", sans-serif;
 }
 
 body {
-  color: #999;
-  background: #101010;
+  color: #264143;
+  background: #CFCBA9;
 }
 
 #wrapper {
@@ -18,7 +18,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #999;
+  color: #264143;
 }
 
 img {
@@ -88,7 +88,7 @@ img {
   top: 0;
   left: 0;
   width: 300px;
-  background-color: black;
+  background-color: #DEE3C3  ;
   height: 100vh;
   transition: 0.5s;
   display: block;
@@ -266,7 +266,7 @@ footer small {
 }
 
 .pagination a.active {
-  background-color: #4caf50;
+  background-color: #264143;
   color: white;
 }
 
@@ -426,10 +426,25 @@ textarea {
   border: none;
   cursor: pointer;
   transition: 0.3s ease;
+  width: 20%;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+
 }
 
 #contact-us input[type="submit"]:hover {
   transform: translateY(-4px);
+}
+
+.dashboard{
+    margin-top: 30px;
+}
+.dashboard a{
+    all:revert;
+    font-size: 26px;
+    display: inline-block;
+    margin: 2px 0;
 }
 
 /* Medium devices and below */

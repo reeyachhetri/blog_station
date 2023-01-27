@@ -50,9 +50,9 @@
 </nav>
 
 
-<div class="container" >
+<div class="container" style="padding: 0px">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8" style="width: 100%">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
@@ -64,6 +64,14 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <div class="dashboard">
+                        <ul style="list-style-type: none">
+                            <li><a href="{{route('blog.create')}}">Create Post</a></li>
+                            <li><a href="">Create Category</a></li>
+                            <li><a href="">Categories List</a></li>
+                        </ul>
+
+                    </div>
                 </div>
             </div>
         </div>
