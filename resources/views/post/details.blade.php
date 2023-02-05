@@ -17,7 +17,7 @@
 
       <div class="about-text">
         <p>
-          {!!$post->body!! }
+          {!!$post->body!!}
       </div>
     </section>
     <section class="recommended">

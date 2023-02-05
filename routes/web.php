@@ -22,7 +22,16 @@ Route::get('/blogstation', 'App\Http\Controllers\BlogController@index')->name('b
 
 
 // To create blog post
-Route::get('/blog/create', 'App\Http\Controllers\BlogController@create')->name('blog.create');
+Route::get('/blog/create', 'App\Http\Controllers\BlogController@create')->name('blog.create')->middleware('auth');
+
+// To edit blog post
+Route::get('/blog/edit/{id}', 'App\Http\Controllers\BlogController@edit')->name('blog.edit')->middleware('auth');
+
+// To update blog post
+Route::post('/blog/update/{id}', 'App\Http\Controllers\BlogController@update')->name('blog.update')->middleware('auth');
+
+// To delete blog post
+Route::get('/blog/delete/{id}', 'App\Http\Controllers\BlogController@destroy')->name('blog.delete');
 
 // To store blog post to DB
 Route::post('/blog/store', 'App\Http\Controllers\BlogController@store')->name('blog.store');
@@ -30,13 +39,11 @@ Route::post('/blog/store', 'App\Http\Controllers\BlogController@store')->name('b
 // To details page
 Route::get('/blog/{post:slug}', 'App\Http\Controllers\BlogController@show')->name('blog.show');
 
-// To about us page
-Route::get('/about-us', function(){
-    return view('aboutus');
-})->name('about');
-
 // To contact page
 Route::get('/contact-us', 'App\Http\Controllers\ContactController@index')->name('contact.index');
+
+// To store contacts
+Route::post('/contact-us/store', 'App\Http\Controllers\ContactController@store')->name('contact.store');
 
 Auth::routes();
 

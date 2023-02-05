@@ -19,20 +19,23 @@
       <!-- sidebar -->
       <div class="sidebar">
         <span class="closeButton">&times;</span>
-        <p class="brand-title"><a href="">Blog Station</a></p>
+        <p class="brand-title"><a href="{{route('welcome.index')}}">Blog Station</a></p>
 
         <div class="side-links">
           <ul>
             <li><a class="{{Request::routeIs('welcome.index') ? 'active' : ''}}" href="{{route('welcome.index')}}">Home</a></li>
             <li><a class="{{Request::routeIs('blog.index') ? 'active' : ''}}" href="{{route('blog.index')}}">Blog</a></li>
-            <li><a class="{{Request::routeIs('about') ? 'active' : ''}}" href="{{route('about')}}">About</a></li>
+
             <li><a class="{{Request::routeIs('contact.index') ? 'active' : ''}}"href="{{route('contact.index')}}">Contact</a></li>
             @guest
+
               <li><a class="{{Request::routeIs('login') ? 'active' : ''}}"href="{{route('login')}}">Login</a></li>
               <li><a class="{{Request::routeIs('register') ? 'active' : ''}}"href="{{route('register')}}">Register</a></li>
             @endguest
             @auth
+
               <li><a class="{{Request::routeIs('home') ? 'active' : ''}}"href="{{route('home')}}">Dashboard</a></li>
+              <li><a class="{{Request::routeIs('about') ? 'active' : ''}}" href="{{route('blog.create')}}">Create Post</a></li>
             @endauth
             </ul>
         </div>

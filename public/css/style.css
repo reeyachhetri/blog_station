@@ -302,7 +302,7 @@ footer small {
 }
 
 .single-blog-post .about-text {
-  max-width: 700px;
+  max-width: 900px;
   margin: 17px auto;
   line-height: 1.5;
 }
@@ -390,7 +390,7 @@ footer small {
 
 #contact-us .specific-info i {
   margin-right: 20px;
-  color: rgba(255, 255, 0, 0.9);
+  color: #264143;
 }
 
 #contact-us .subtitle {
@@ -421,7 +421,7 @@ textarea {
 }
 
 #contact-us input[type="submit"] {
-  background-color: black;
+  background-color: #264143;
   color: white;
   border: none;
   cursor: pointer;

@@ -25,7 +25,7 @@
     <section class="cards-blog latest-blog">
 
 
-    @foreach ($posts as $post)
+    @forelse ($posts as $post)
     <div class="card-blog-content">
         <img src="{{asset($post->imagePath)}}" alt="" />
         <p>
@@ -36,7 +36,9 @@
           <a href="{{route('blog.show', $post)}}">{{$post->title}}</a>
         </h4>
       </div>
-    @endforeach
+      @empty
+      <p style="width: 1045px; text-align: center; padding: 62px;">Sorry, currently there is no no such blog post!</p>
+    @endforelse
 
     </section>
 
