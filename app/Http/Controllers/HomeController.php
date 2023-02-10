@@ -26,10 +26,10 @@ class HomeController extends Controller
     {
         if($request->search){
             $posts = Post::where('title', 'like', '%'. $request->search . '%')
-            ->orWhere('title', 'like', '%'. $request->search . '%')->latest()->get();
+            ->orWhere('title', 'like', '%'. $request->search . '%')->latest()->paginate(6);
         }
         else{
-            $posts = Post::latest()->get();
+            $posts = Post::latest()->paginate(6);
         }
 
         return view('home', compact('posts'));

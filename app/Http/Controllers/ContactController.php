@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -35,13 +36,20 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        Contact::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'subject'=>$request->subject,
-            'message'=>$request->message,
+        $data = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required'
+
         ]);
-        return redirect()->route('contact.index');
+
+        Mail::to('chhetrireeya53@gmail.com')->send(new Contact($data));
+
+
+
+
+        return redirect()->route('contact.index')->with('status', "Thank you, we'll be in touch soon");
     }
 
     /**

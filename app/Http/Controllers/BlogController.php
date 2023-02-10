@@ -19,10 +19,10 @@ class BlogController extends Controller
     {
         if($request->search){
             $posts = Post::where('title', 'like', '%'. $request->search . '%')
-            ->orWhere('title', 'like', '%'. $request->search . '%')->latest()->get();
+            ->orWhere('title', 'like', '%'. $request->search . '%')->latest()->paginate(4);
         }
         else{
-            $posts = Post::latest()->get();
+            $posts = Post::latest()->paginate(4);
         }
 
 
@@ -158,8 +158,7 @@ class BlogController extends Controller
         $body = $request->input('body');
 
 
-        $imagePath = 'storage/' . $request->file('image')->store('img', 'public');
-
+        $imagePath = 'storage/' . $request->file('image')->store('img', 'public'); 
 
 
         $post->title = $title;

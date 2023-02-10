@@ -5,6 +5,9 @@
  <main class="container">
     <section id="contact-us">
       <h1>Get in Touch!</h1>
+      @if (session('status'))
+                <p style="color:#fff; width:100%; font-size:18px; font-weight:600; text-align:center; background: #4C7450; padding:17px 0px; margin-bottom:6px">{{session('status')}}</p>
+            @endif
 
       <!-- contact info -->
       <div class="container">

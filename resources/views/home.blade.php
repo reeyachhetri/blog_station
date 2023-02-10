@@ -54,7 +54,7 @@
             <h2 class="header-title">My Blog Posts</h2>
 
             <div class="searchbar">
-                <form action="">
+                <form action="" style="padding-bottom: 30px;">
                     <input type="text" placeholder="Search..." name="search" />
 
                     <button type="submit">
@@ -62,14 +62,6 @@
                     </button>
 
                 </form>
-            </div>
-            <div class="categories">
-                <ul>
-                    <li><a href="">Health</a></li>
-                    <li><a href="">Entertainment</a></li>
-                    <li><a href="">Sports</a></li>
-                    <li><a href="">Nature</a></li>
-                </ul>
             </div>
             <section class="cards-blog latest-blog">
 
@@ -103,15 +95,7 @@
             </section>
 
             <!-- pagination -->
-            <div class="pagination" id="pagination">
-                <a href="">&laquo;</a>
-                <a class="active" href="">1</a>
-                <a href="">2</a>
-                <a href="">3</a>
-                <a href="">4</a>
-                <a href="">5</a>
-                <a href="">&raquo;</a>
-            </div>
+            {{$posts->links('pagination::default')}}
 
         </main>
         <br>
