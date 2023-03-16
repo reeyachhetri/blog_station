@@ -5,9 +5,12 @@
  <main class="container">
     <section id="contact-us">
       <h1>Get in Touch!</h1>
-      @if (session('status'))
-                <p style="color:#fff; width:100%; font-size:18px; font-weight:600; text-align:center; background: #4C7450; padding:17px 0px; margin-bottom:6px">{{session('status')}}</p>
-            @endif
+      @if (session('message_sent'))
+                <p style="color:#fff; width:100%; font-size:18px; font-weight:600; text-align:center; background: #4C7450; padding:17px 0px; margin-bottom:6px">{{session('message_sent')}}</p>
+    @endif
+<br>
+<br>
+
 
       <!-- contact info -->
       <div class="container">
@@ -39,7 +42,7 @@
           <div class="specific-info">
             <i class="fas fa-envelope-open-text"></i>
             <div>
-              <a href="mailto:info@alphayo.co.ke">
+              <a href="mailto:info@blogstation.com">
                 <p class="title">info@blogstation.com.np</p>
               </a>
               <p class="subtitle">Send us your query anytime!</p>
@@ -49,7 +52,8 @@
 
         <!-- Contact Form -->
         <div class="contact-form">
-          <form action="{{route('contact.store')}}" method="post">
+
+          <form action="{{route('contact.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <!-- Name -->
             <label for="name"><span>Name</span></label>

@@ -14,6 +14,7 @@
 
       </form>
     </div>
+    
     <section class="cards-blog latest-blog">
 
 
@@ -29,7 +30,7 @@
         </h4>
       </div>
       @empty
-      <p style="width: 1045px; text-align: center; padding: 62px;">Sorry, currently there is no no such blog post!</p>
+      <p style="width: 1045px; text-align: center; padding: 62px;">Sorry, currently there is no such blog post!</p>
     @endforelse
 
     </section>

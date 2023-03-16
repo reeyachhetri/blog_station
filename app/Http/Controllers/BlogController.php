@@ -142,7 +142,7 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    /* public function update(Request $request, Post $post)
     {
 
         $request->validate([
@@ -158,7 +158,7 @@ class BlogController extends Controller
         $body = $request->input('body');
 
 
-        $imagePath = 'storage/' . $request->file('image')->store('img', 'public'); 
+        $imagePath = 'storage/' . $request->file('image')->store('img', 'public');
 
 
         $post->title = $title;
@@ -171,6 +171,25 @@ class BlogController extends Controller
         return redirect()->back()->with('status','The post has been updated successfully');
 
 
+
+    } */
+    public function update(Request $request, $id)
+    {
+        $post = Post::find($id);
+        $post->update([
+            'title'=> $request->title,
+
+            'body'=> $request->body,
+
+        ]);
+
+        $imagePath = 'storage/' . $request->file('image')->store('img', 'public');
+
+        $post->update([
+            'imagePath' =>$imagePath,
+        ]);
+
+        return redirect()->route('home')->with('status','The post has been updated successfully');
     }
    /*  public function update(Request $request, $id)
     {

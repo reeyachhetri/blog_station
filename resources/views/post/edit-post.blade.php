@@ -9,7 +9,7 @@
 
             <!-- Contact Form -->
             <div class="contact-form">
-                <form action="{{route('blog.update', $posts)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('blog.update', $posts->id)}}" method="POST" enctype="multipart/form-data">
 
                     @csrf
                     <!-- Title -->

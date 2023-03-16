@@ -43,8 +43,14 @@ Route::get('/blog/{post:slug}', 'App\Http\Controllers\BlogController@show')->nam
 Route::get('/contact-us', 'App\Http\Controllers\ContactController@index')->name('contact.index');
 
 // To store contacts
-Route::post('/contact-us/store', 'App\Http\Controllers\ContactController@store')->name('contact.store');
+Route::post('/send-message', 'App\Http\Controllers\ContactController@store')->name('contact.store');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('admin/home', function () {
+    return view('admin.home');
+
+});

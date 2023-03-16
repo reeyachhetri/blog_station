@@ -71,7 +71,7 @@
                     <a href=""><i class="fab fa-twitter"></i></a>
                 </div>
 
-                <small>&copy 2021 Blog Station</small>
+                <small>&copy 2023 Blog Station</small>
             </footer>
         </div>
         <!-- Menu Button -->

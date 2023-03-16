@@ -52,7 +52,10 @@
         <!-- main -->
         <main class="container">
             <h2 class="header-title">My Blog Posts</h2>
-
+            @if (session('status'))
+            <p style="color:#fff; width:100%; font-size:18px; font-weight:600; text-align:center; background: #4C7450; padding:17px 0px; margin-bottom:6px">{{session('status')}}</p>
+        @endif
+        <br>
             <div class="searchbar">
                 <form action="" style="padding-bottom: 30px;">
                     <input type="text" placeholder="Search..." name="search" />
@@ -64,7 +67,6 @@
                 </form>
             </div>
             <section class="cards-blog latest-blog">
-
 
                 @forelse ($posts as $post)
                     <div class="card-blog-content">

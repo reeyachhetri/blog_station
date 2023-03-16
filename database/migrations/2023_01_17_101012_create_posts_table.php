@@ -15,8 +15,8 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug');
+            $table->string('title', 256);
+            $table->string('slug', 100);
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('imagePath');
             $table->text('body');

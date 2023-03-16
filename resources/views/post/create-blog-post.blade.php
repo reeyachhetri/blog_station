@@ -6,7 +6,10 @@
     <main class="container" style="background-color: #fff;">
         <section id="contact-us">
             <h1 style="padding-top: 50px;">Create New Post</h1>
-
+            @if (session('status'))
+                <p style="color:#fff; width:100%; font-size:18px; font-weight:600; text-align:center; background: #4C7450; padding:17px 0px; margin-bottom:6px">{{session('status')}}</p>
+            @endif
+            <br>
             <!-- Contact Form -->
             <div class="contact-form">
                 <form action="{{route('blog.store')}}" method="post" enctype="multipart/form-data">
@@ -36,10 +39,7 @@
                 </form>
             </div>
             <br>
-            @if (session('status'))
-                <p style="color:#fff; width:100%; font-size:18px; font-weight:600; text-align:center; background: #4C7450; padding:17px 0px; margin-bottom:6px">{{session('status')}}</p>
-            @endif
-            <br>
+
 
         </section>
     </main>
